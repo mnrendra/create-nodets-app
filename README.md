@@ -1,5 +1,5 @@
 # create-nodets-app
-My initial `NodeJs` project template using `TypeScript`
+My initial `NodeJs` project template using `TypeScript`.
 
 ## 1. Clone
 ```
