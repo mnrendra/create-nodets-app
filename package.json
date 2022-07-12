@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "npm run build && node -r dotenv/config .",
+    "start": "npm run build && node -r dotenv/config --experimental-modules --es-module-specifier-resolution=node .",
     "dev": "nodemon -e ts --exec 'npm run start'",
     "prod": "npm run start"
   },
