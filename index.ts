@@ -6,6 +6,7 @@ const PORT = !Number.isNaN(Number(process.env.PORT)) ? Number(process.env.PORT) 
 
 const app = express()
 
+app.use(express.json())
 app.use(routes)
 
 app.listen(PORT, () => {
