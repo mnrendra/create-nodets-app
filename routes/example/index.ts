@@ -1,21 +1,17 @@
 import express from 'express'
 
+import gets from './gets'
+import get from './get'
+import post from './post'
+import put from './put'
+import del from './del'
+
 const router = express.Router()
 
-router.get('/', (req, res, next) => {
-  res.json({
-    status: 'success',
-    method: 'GET',
-    query: req.query
-  })
-})
-
-router.get('/:id', (req, res, next) => {
-  res.json({
-    status: 'success',
-    method: 'GET (by Id)',
-    param: req.params.id
-  })
-})
+router.get('/', gets)
+router.get('/:id', get)
+router.post('/', post)
+router.put('/:id', put)
+router.delete('/:id', del)
 
 export default router
