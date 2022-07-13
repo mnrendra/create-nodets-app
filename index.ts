@@ -1,14 +1,22 @@
-import 'dotenv/config'
 import express from 'express'
+
+import { env } from './config'
+import db from './db'
 import routes from './routes'
 
-const PORT = !Number.isNaN(Number(process.env.PORT)) ? Number(process.env.PORT) : 8080
+const main = async () => {
+  // conf
+  const { PORT, DB_URL } = env()
 
-const app = express()
+  // db
+  const dbMsg = await db(DB_URL, {})
+  console.log('dbMsg', dbMsg)
 
-app.use(express.json())
-app.use(routes)
+  // app
+  const app = express()
+  app.use(express.json())
+  app.use(routes)
+  app.listen(PORT, () => console.log(`listen on port ${PORT}`))
+}
 
-app.listen(PORT, () => {
-  console.log(`listen on port ${PORT}`)
-})
+main()
