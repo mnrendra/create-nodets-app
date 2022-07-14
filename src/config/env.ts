@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import fs from 'fs'
 
-import { isNumb, isString } from '../lib/validator'
+import { isNumb, isString } from '@lib/validator'
 
 const env = (): any => {
   try {

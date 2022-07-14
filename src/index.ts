@@ -1,8 +1,10 @@
+import 'module-alias/register';
+
 import express from 'express'
 
-import { env } from './config'
-import db from './db'
-import routes from './routes'
+import { env } from '@config'
+import db from '@db'
+import routes from '@routes'
 
 const main = async () => {
   // conf
