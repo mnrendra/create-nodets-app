@@ -4,15 +4,13 @@
   "description": "My initial `NodeJs` project template using `TypeScript`.",
   "main": "./build",
   "scripts": {
-    "build": "rm -r ./build && tsc -p tsconfig.json",
-    "start": "npm run build && node -r dotenv/config .",
-    "dev": "nodemon -e ts --exec 'npm run start'",
-    "prod": "npm run start"
+    "build": "tsc -p tsconfig.json",
+    "dev": "yarn build && node -r dotenv/config .",
+    "start": "nodemon -e ts --exec 'yarn dev'",
+    "prod": "node -r dotenv/config .",
+    "start:prod": "yarn prod"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/mnrendra/create-nodets-app.git"
-  },
+  "repository": "git+ssh://git@github.com/mnrendra/create-nodets-app.git",
   "keywords": [
     "create-nodets-app"
   ],
