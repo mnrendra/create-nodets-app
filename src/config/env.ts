@@ -3,24 +3,26 @@ import fs from 'fs'
 
 import { isNumb, isString } from '@lib/validator'
 
-export interface iEnv {
-  PORT: number
-  DB_URL: string
-}
+const errMsg = 'Please follow https://github.com/mnrendra/create-nodets-app#3-set-environment step.'
 
-const env = (): iEnv => {
-  const errMsg = 'Please follow https://github.com/mnrendra/create-nodets-app#3-set-environment step.'
-
+const getEnv = (): any => {
   try {
     fs.readFileSync('.env', { encoding: 'utf8', flag: 'r' })
   } catch (e) {
     throw new Error(`Need a .env file! ${errMsg}`)
   }
+  return process.env
+}
 
-  const { env } = process
+interface iEnv {
+  PORT: number
+  DB_URL: string
+}
 
-  if (env.PORT === undefined || !isNumb(Number(env.PORT))) throw new Error(`Need a PORT on .env file! ${errMsg}`)
-  if (env.DB_URL === undefined || !isString(env.DB_URL) || env.DB_URL === '') throw new Error(`Need a DB_URL on .env file! ${errMsg}`)
+const env = (): iEnv => {
+  const env: iEnv = getEnv()
+  if (!isNumb(Number(env.PORT))) throw new Error(`Need a PORT on .env file! ${errMsg}`)
+  if (!isString(env.DB_URL) || env.DB_URL === '') throw new Error(`Need a DB_URL on .env file! ${errMsg}`)
 
   return {
     PORT: Number(env.PORT),
