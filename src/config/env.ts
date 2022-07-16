@@ -1,19 +1,17 @@
 import 'dotenv/config'
-import fs from 'fs'
 
 import { isNumb, isString } from '@lib/validator'
 
-const env = (): any => {
-  try {
-    fs.readFileSync('.env', { encoding: 'utf8', flag: 'r' })
-  } catch (e) {
-    throw e
-  }
+export interface iEnv {
+  PORT: number
+  DB_URL: string
+}
 
+const env = (): iEnv => {
   const { env } = process
 
-  if (!isNumb(Number(env.PORT))) throw new Error('Need a PORT env on .env file!')
-  if (!isString(env.DB_URL) || env.DB_URL === '') throw new Error('Need a MongoDB URL env on .env file!')
+  if (env.PORT === undefined || !isNumb(Number(env.PORT))) throw new Error('Need a PORT on .env file!')
+  if (env.DB_URL === undefined || !isString(env.DB_URL) || env.DB_URL === '') throw new Error('Need a DB_URL on .env file!')
 
   return {
     PORT: Number(env.PORT),
