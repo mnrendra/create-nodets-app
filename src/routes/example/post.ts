@@ -1,35 +1,36 @@
+import { Request, Response, NextFunction } from 'express'
 import { validateExample } from '@schemas'
 import { Example } from '@models'
-import { sendFailed, sendError, sendSuccess } from '@commons/responder'
+import { sendSuccess, sendFailed, sendError } from '@commons/responder'
 import { isJSON } from '@lib/validator'
 
-const post = async (req: any, res: any, next: any) => {
+interface iExample {
+  name: string
+}
+
+const post = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { body } = req
 
-    const validExample = await validateExample(body)
-    const isExist = await Example.findOne({ name: validExample.name })
+    const example: iExample = await validateExample(body)
+    const isExist = await Example.findOne({ name: example.name })
     if (isJSON(isExist)) {
-      sendFailed(res, {
-        message: `${validExample.name} already added!`,
-        payload: { name: validExample.name }
+      sendFailed(res, { message: `${example.name} already added!` })
+    } else {
+      const newExample = new Example(example)
+      const savedExample: any = await newExample.save()
+      sendSuccess(res, {
+        message: 'Successfully add a new example!',
+        payload: {
+          id: savedExample._id,
+          name: savedExample.name,
+          created: savedExample.created,
+          updated: savedExample.updated
+        }
       })
     }
-
-    const newExample = new Example(validExample)
-    const savedExample: any = await newExample.save()
-    sendSuccess(res, {
-      message: 'Successfully add a new example!',
-      payload: {
-        id: savedExample._id,
-        name: savedExample.name,
-        created: savedExample.created,
-        updated: savedExample.updated
-      }
-    })
   } catch (e) {
     sendError(res, e)
-    next(e)
   }
 }
 

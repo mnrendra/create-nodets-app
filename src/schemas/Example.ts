@@ -6,7 +6,7 @@ const Example = Joi.object({
     .min(1)
     .max(64)
     .regex(/^[a-zA-Z0-9 ]*$/m)
-    .required(),
+    .required()
   // price: Joi
   //   .number()
   //   .min(0)
@@ -19,12 +19,11 @@ const Example = Joi.object({
   //   .default(null)
 })
 
-
-export const validateExample = async (val: any) => {
+export const validateExample = async (val: any): Promise<any> => {
   try {
-    const validValue = await Example.validateAsync(val)
+    const validValue: any = await Example.validateAsync(val)
     return validValue
-  } catch (e) {
-    throw e
+  } catch (e: any) {
+    throw new Error(e)
   }
 }
