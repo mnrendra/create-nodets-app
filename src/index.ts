@@ -6,7 +6,7 @@ import { env } from '@config'
 import db from '@db'
 import routes from '@routes'
 
-const main = async () => {
+const main = async (): Promise<any> => {
   // conf
   const { PORT, DB_URL } = env()
 
@@ -22,3 +22,9 @@ const main = async () => {
 }
 
 main()
+  .then(() => {
+    console.log('Ready!')
+  })
+  .catch((e) => {
+    throw e
+  })
