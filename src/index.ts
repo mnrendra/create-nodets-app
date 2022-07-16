@@ -1,24 +1,17 @@
-import 'module-alias/register';
-
-import express from 'express'
-
+import 'module-alias/register'
 import { env } from '@config'
 import db from '@db'
-import routes from '@routes'
+import app from './app'
 
-const main = async () => {
-  // conf
-  const { PORT, DB_URL } = env()
+const { PORT, DB_URL } = env()
 
-  // db
-  const dbMsg = await db(DB_URL, {})
-  console.log('dbMsg', dbMsg)
-
-  // app
-  const app = express()
-  app.use(express.json())
-  app.use(routes)
-  app.listen(PORT, () => console.log(`listen on port ${PORT}`))
-}
-
-main()
+db(DB_URL, {})
+  .then((dbMsg) => {
+    console.log(dbMsg)
+    app.listen(PORT, () => {
+      console.log(`app listening on port ${PORT}`)
+    })
+  })
+  .catch((e) => {
+    console.error('Error: MongoDB (mongod) server is not running! Please run mongod first!')
+  })

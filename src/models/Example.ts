@@ -8,7 +8,7 @@ const Example = new mongoose.Schema({
     maxlength: 64,
     match: /^[a-zA-Z0-9 ]*$/m,
     required: true
-  },
+  }
   // price: {
   //   type: Number,
   //   min: 0,

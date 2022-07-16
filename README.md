@@ -26,7 +26,13 @@ If you are using VisualStudio Code, run it:
 code .
 ```
 
-### 5. Run
+### 5. Run MongoDB server
+Make sure you have MongoDB server (`mongod`) run on your local machine.
+```
+mongod
+```
+
+### 6. Run
 ```
 yarn start
 ```
