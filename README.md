@@ -15,6 +15,7 @@ yarn install
 ### 3. Set Environment
 Add `.env` file on this root directory by running `nano ./.env` and add the variables, at least:
 ```
+GRPC_PORT=50051
 PORT=8080
 DB_URL=mongodb://127.0.0.1/example
 ```
