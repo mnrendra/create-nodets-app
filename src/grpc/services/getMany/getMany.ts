@@ -10,14 +10,14 @@ const getMany = (
   //
   callback(null, {
     status: 200,
-    message: 'found',
+    message: 'OK',
     page: 0,
-    length: 1,
-    examples: [{
-      id: query.id,
+    limit: 1,
+    row: [{
+      _id: query.id,
       name: 'Alfa',
-      createdAt: '2022-07-16T17:13:57.450+00:00',
-      updatedAt: '2022-07-16T17:13:57.450+00:00'
+      created: '2022-07-16T17:13:57.450+00:00',
+      updated: '2022-07-16T17:13:57.450+00:00'
     }]
   })
 }

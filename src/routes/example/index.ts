@@ -1,17 +1,17 @@
 import express from 'express'
 
-import gets from './gets'
-import get from './get'
-import post from './post'
-import put from './put'
-import del from './del'
+import getMany from './getMany'
+import getOne from './getOne'
+import postOne from './postOne'
+import putOne from './putOne'
+import delOne from './delOne'
 
 const router = express.Router()
 
-router.get('/', gets)
-router.get('/:id', get)
-router.post('/', post)
-router.put('/:id', put)
-router.delete('/:id', del)
+router.get('/', getMany)
+router.get('/:id', getOne)
+router.post('/', postOne)
+router.put('/:id', putOne)
+router.delete('/:id', delOne)
 
 export default router

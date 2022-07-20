@@ -16,6 +16,6 @@ message GetManyRes {
   int32 status = 1;
   string message = 2;
   int32 page = 3;
-  int32 length = 4;
-  repeated example.Example examples = 5;
+  int32 limit = 4;
+  repeated example.Example row = 5;
 }

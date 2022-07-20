@@ -1,6 +1,6 @@
 {
   "name": "create-nodets-app",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "My initial `NodeJs` project template using `TypeScript`.",
   "main": "./build",
   "scripts": {
@@ -35,10 +35,12 @@
     "mongoose": "^6.4.4"
   },
   "_moduleAliases": {
+    "@business": "build/business",
     "@commons": "build/commons",
     "@config": "build/config",
     "@db": "build/db",
     "@lib": "build/lib",
+    "@interfaces": "build/interfaces",
     "@models": "build/models",
     "@routes": "build/routes",
     "@schemas": "build/schemas"
