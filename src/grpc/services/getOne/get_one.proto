@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "example.proto";
+
+package get_one;
+
+message Params {
+  string id = 1;
+}
+
+message GetOneReq {
+  Params params = 1;
+}
+
+message GetOneRes {
+  int32 status = 1;
+  string message = 2;
+  example.Example example = 3;
+}

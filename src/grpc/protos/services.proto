@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "get_many.proto";
+import "get_one.proto";
+import "post_one.proto";
+import "put_one.proto";
+import "del_one.proto";
+
+package services;
+
+service Example {
+  rpc GetMany (get_many.GetManyReq) returns (get_many.GetManyRes) {}
+  rpc GetOne (get_one.GetOneReq) returns (get_one.GetOneRes) {}
+  rpc PostOne (post_one.PostOneReq) returns (post_one.PostOneRes) {}
+  rpc PutOne (put_one.PutOneReq) returns (put_one.PutOneRes) {}
+  rpc DelOne (del_one.DelOneReq) returns (del_one.DelOneRes) {}
+}

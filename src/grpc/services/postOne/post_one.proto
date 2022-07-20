@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "example.proto";
+
+package post_one;
+
+message Body {
+  string name = 1;
+}
+
+message PostOneReq {
+  Body body = 1;
+}
+
+message PostOneRes {
+  int32 status = 1;
+  string message = 2;
+  example.Example example = 3;
+}
