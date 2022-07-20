@@ -10,12 +10,12 @@ const delOne = (
   //
   callback(null, {
     status: 200,
-    message: 'deleted',
-    example: {
-      id: params.id,
+    message: 'OK',
+    data: {
+      _id: params.id,
       name: 'Alfa',
-      createdAt: '2022-07-16T17:13:57.450+00:00',
-      updatedAt: '2022-07-16T17:13:57.450+00:00'
+      created: '2022-07-16T17:13:57.450+00:00',
+      updated: '2022-07-16T17:13:57.450+00:00'
     }
   })
 }

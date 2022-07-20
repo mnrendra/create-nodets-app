@@ -9,13 +9,13 @@ const postOne = (
   // Do something here
   //
   callback(null, {
-    status: 200,
-    message: 'saved',
-    example: {
-      id: '123',
+    status: 201,
+    message: 'OK',
+    data: {
+      _id: '123',
       name: body.name,
-      createdAt: '2022-07-16T17:13:57.450+00:00',
-      updatedAt: '2022-07-16T17:13:57.450+00:00'
+      created: '2022-07-16T17:13:57.450+00:00',
+      updated: '2022-07-16T17:13:57.450+00:00'
     }
   })
 }

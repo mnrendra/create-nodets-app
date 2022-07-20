@@ -15,5 +15,5 @@ message DelOneReq {
 message DelOneRes {
   int32 status = 1;
   string message = 2;
-  example.Example example = 3;
+  example.Example data = 3;
 }

@@ -10,12 +10,12 @@ const putOne = (
   //
   callback(null, {
     status: 200,
-    message: 'updated',
-    example: {
-      id: params.id,
+    message: 'OK',
+    data: {
+      _id: params.id,
       name: body.name,
-      createdAt: '2022-07-16T17:13:57.450+00:00',
-      updatedAt: '2022-07-16T17:13:57.450+00:00'
+      created: '2022-07-16T17:13:57.450+00:00',
+      updated: '2022-07-16T17:13:57.450+00:00'
     }
   })
 }
