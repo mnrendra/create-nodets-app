@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "example.proto";
+
+package del_one;
+
+message Params {
+  string id = 1;
+}
+
+message DelOneReq {
+  Params params = 1;
+}
+
+message DelOneRes {
+  int32 status = 1;
+  string message = 2;
+  example.Example example = 3;
+}

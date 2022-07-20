@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "example.proto";
+
+package put_one;
+
+message Params {
+  string id = 1;
+}
+
+message Body {
+  string name = 1;
+}
+
+message PutOneReq {
+  Params params = 1;
+  Body body = 2;
+}
+
+message PutOneRes {
+  int32 status = 1;
+  string message = 2;
+  example.Example example = 3;
+}

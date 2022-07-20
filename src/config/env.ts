@@ -15,19 +15,36 @@ const getEnv = (): any => {
 }
 
 interface iEnv {
+  GRPC_PORT: number
   PORT: number
   DB_URL: string
 }
 
-const env = (): iEnv => {
-  const env: iEnv = getEnv()
-  if (!isNumb(Number(env.PORT))) throw new Error(`Need a PORT on .env file! ${errMsg}`)
-  if (!isString(env.DB_URL) || env.DB_URL === '') throw new Error(`Need a DB_URL on .env file! ${errMsg}`)
+const defEnv: iEnv = {
+  GRPC_PORT: 0,
+  PORT: 0,
+  DB_URL: ''
+}
 
-  return {
-    PORT: Number(env.PORT),
-    DB_URL: `${env.DB_URL}`
-  }
+const env = (): iEnv => {
+  // int
+  const env: iEnv = getEnv()
+  const validEnv: iEnv = defEnv
+
+  // GRPC_PORT
+  if (!isNumb(Number(env.GRPC_PORT))) throw new Error(`Need a GRPC_PORT on .env file! ${errMsg}`)
+  validEnv.GRPC_PORT = Number(env.GRPC_PORT)
+
+  // PORT
+  if (!isNumb(Number(env.PORT))) throw new Error(`Need a PORT on .env file! ${errMsg}`)
+  validEnv.PORT = Number(env.PORT)
+
+  // DB_URL
+  if (!isString(env.DB_URL) || env.DB_URL === '') throw new Error(`Need a DB_URL on .env file! ${errMsg}`)
+  validEnv.DB_URL = `${env.DB_URL}`
+
+  // return validEnv
+  return validEnv
 }
 
 export default env
