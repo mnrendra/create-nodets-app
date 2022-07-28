@@ -3,7 +3,7 @@ import * as protoLoader from '@grpc/proto-loader'
 import { protoOption } from './protos'
 import services from './services'
 
-const protoPath = './src/grpc/protos/services.proto'
+const protoPath = './src/interfaces/grpc/protos/services.proto'
 
 const packageDefinition = protoLoader.loadSync(protoPath, protoOption)
 const { Example }: any = grpc.loadPackageDefinition(packageDefinition).services

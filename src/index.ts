@@ -1,8 +1,7 @@
 import 'module-alias/register'
 import { env } from '@config'
 import db from '@db'
-import app from './app'
-import grpc from './grpc'
+import { rest, grpc } from '@interfaces'
 
 const { GRPC_PORT, PORT, DB_URL } = env()
 
@@ -10,7 +9,7 @@ db(DB_URL, {})
   .then((dbMsg) => {
     console.log(dbMsg)
     //
-    app.listen(PORT, () => {
+    rest.app.listen(PORT, () => {
       console.log(`app listening on port ${PORT}`)
     })
     //

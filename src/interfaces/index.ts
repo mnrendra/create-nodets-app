@@ -1,5 +1,7 @@
-import iExample from './example'
+import grpc from './grpc'
+import rest from './rest'
 
 export {
-  iExample
+  grpc,
+  rest
 }
