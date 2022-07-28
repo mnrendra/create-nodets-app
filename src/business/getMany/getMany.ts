@@ -26,7 +26,7 @@ const getMany = async (req?: Request): Promise<iGetManyRes> => {
     let examples: iExample[] = []
     let response: iGetManyRes = defGetManyRes
 
-    if (isString(query.id)) {
+    if (isString(query.id) && query.id !== '') {
       examples = await Example.find({ _id: query.id })
     } else {
       examples = await Example.find({})

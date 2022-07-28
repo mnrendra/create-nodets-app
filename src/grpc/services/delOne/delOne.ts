@@ -1,23 +1,18 @@
 import { ServerUnaryCall, sendUnaryData } from '@grpc/grpc-js'
+import delOne, { iDelOneRes } from '@business/delOne'
 
-const delOne = (
+const delOneProcedure = async (
   call: ServerUnaryCall<any, any>,
   callback: sendUnaryData<any>
-): void => {
-  const { params } = call.request
-  //
-  // Do something here
-  //
-  callback(null, {
-    status: 200,
-    message: 'OK',
-    data: {
-      _id: params.id,
-      name: 'Alfa',
-      created: '2022-07-16T17:13:57.450+00:00',
-      updated: '2022-07-16T17:13:57.450+00:00'
-    }
-  })
+): Promise<void> => {
+  try {
+    /* @business logic */
+    const response: iDelOneRes = await delOne(call.request)
+
+    callback(null, response)
+  } catch (e: any) {
+    throw new Error(e)
+  }
 }
 
-export default delOne
+export default delOneProcedure

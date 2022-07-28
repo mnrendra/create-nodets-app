@@ -1,25 +1,18 @@
 import { ServerUnaryCall, sendUnaryData } from '@grpc/grpc-js'
+import getMany, { iGetManyRes } from '@business/getMany'
 
-const getMany = (
+const getManyProcedure = async (
   call: ServerUnaryCall<any, any>,
   callback: sendUnaryData<any>
-): void => {
-  const { query } = call.request
-  //
-  // Do something here
-  //
-  callback(null, {
-    status: 200,
-    message: 'OK',
-    page: 0,
-    limit: 1,
-    row: [{
-      _id: query.id,
-      name: 'Alfa',
-      created: '2022-07-16T17:13:57.450+00:00',
-      updated: '2022-07-16T17:13:57.450+00:00'
-    }]
-  })
+): Promise<void> => {
+  try {
+    /* @business logic */
+    const response: iGetManyRes = await getMany(call.request)
+
+    callback(null, response)
+  } catch (e: any) {
+    throw new Error(e)
+  }
 }
 
-export default getMany
+export default getManyProcedure

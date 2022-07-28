@@ -1,23 +1,18 @@
 import { ServerUnaryCall, sendUnaryData } from '@grpc/grpc-js'
+import putOne, { iPutOneRes } from '@business/putOne'
 
-const putOne = (
+const putOneProcedure = async (
   call: ServerUnaryCall<any, any>,
   callback: sendUnaryData<any>
-): void => {
-  const { params, body } = call.request
-  //
-  // Do something here
-  //
-  callback(null, {
-    status: 200,
-    message: 'OK',
-    data: {
-      _id: params.id,
-      name: body.name,
-      created: '2022-07-16T17:13:57.450+00:00',
-      updated: '2022-07-16T17:13:57.450+00:00'
-    }
-  })
+): Promise<void> => {
+  try {
+    /* @business logic */
+    const response: iPutOneRes = await putOne(call.request)
+
+    callback(null, response)
+  } catch (e: any) {
+    throw new Error(e)
+  }
 }
 
-export default putOne
+export default putOneProcedure

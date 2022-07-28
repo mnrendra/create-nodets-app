@@ -11,7 +11,15 @@ const protoOption = {
     './src/grpc/services/getOne',
     './src/grpc/services/postOne',
     './src/grpc/services/putOne',
-    './src/grpc/services/delOne'
+    './src/grpc/services/delOne',
+    //
+    './build/grpc/protos',
+    './build/grpc/services',
+    './build/grpc/services/getMany',
+    './build/grpc/services/getOne',
+    './build/grpc/services/postOne',
+    './build/grpc/services/putOne',
+    './build/grpc/services/delOne'
   ]
 }
 
