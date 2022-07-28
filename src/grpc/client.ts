@@ -10,27 +10,27 @@ const { Example }: any = grpc.loadPackageDefinition(packageDefinition).services
 const main = (port: number = 50051): void => {
   const client = new Example(`localhost:${port}`, grpc.credentials.createInsecure())
 
-  client.getMany({ query: { id: '1' } }, (err: any, response: any): void => {
+  client.getMany({ query: {} }, (err: any, response: any): void => {
     if (err !== null && err !== undefined) throw new Error(err)
     console.log('getMany', response)
   })
 
-  client.getOne({ params: { id: '1' } }, (err: any, response: any): void => {
+  client.getOne({ params: { id: '62e2e05b3ea37c861d51815b' } }, (err: any, response: any): void => {
     if (err !== null && err !== undefined) throw new Error(err)
     console.log('getOne', response)
   })
 
-  client.postOne({ body: { name: 'Nia' } }, (err: any, response: any): void => {
+  client.postOne({ body: { name: 'Echo' } }, (err: any, response: any): void => {
     if (err !== null && err !== undefined) throw new Error(err)
     console.log('postOne', response)
   })
 
-  client.putOne({ params: { id: '1' }, body: { name: 'Nia' } }, (err: any, response: any): void => {
+  client.putOne({ params: { id: '62e2e05b3ea37c861d51815b' }, body: { name: 'Delta One' } }, (err: any, response: any): void => {
     if (err !== null && err !== undefined) throw new Error(err)
     console.log('putOne', response)
   })
 
-  client.delOne({ params: { id: '1' } }, (err: any, response: any): void => {
+  client.delOne({ params: { id: '62e2e05b3ea37c861d51815b' } }, (err: any, response: any): void => {
     if (err !== null && err !== undefined) throw new Error(err)
     console.log('delOne', response)
   })
