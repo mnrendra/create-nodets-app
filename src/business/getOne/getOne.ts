@@ -1,7 +1,7 @@
 import { Request } from 'express'
 import { Example } from '@models'
 import { isString, isJSON } from '@lib/validator'
-import { iExample } from '@interfaces'
+import { iExample } from '@commons/interfaces'
 
 interface iGetOneRes {
   status: number

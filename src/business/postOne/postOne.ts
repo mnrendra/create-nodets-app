@@ -2,7 +2,7 @@ import { Request } from 'express'
 import { Example } from '@models'
 import { validateExample } from '@schemas'
 import { isString, isJSON } from '@lib/validator'
-import { iExample } from '@interfaces'
+import { iExample } from '@commons/interfaces'
 
 interface iPostOneRes {
   status: number

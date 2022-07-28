@@ -51,9 +51,6 @@
       // @models
       "@models": ["models"],
       "@models/*": ["models/*"],
-      // @routes
-      "@routes": ["routes"],
-      "@routes/*": ["routes/*"],
       // @schemas
       "@schemas": ["schemas"],
       "@schemas/*": ["schemas/*"],
