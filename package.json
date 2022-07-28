@@ -1,6 +1,6 @@
 {
   "name": "create-nodets-app",
-  "version": "0.2.4",
+  "version": "0.3.1",
   "description": "My initial `NodeJs` project template using `TypeScript`.",
   "main": "./build",
   "scripts": {
@@ -39,9 +39,7 @@
     "@commons": "build/commons",
     "@config": "build/config",
     "@db": "build/db",
-    "@lib": "build/lib",
     "@interfaces": "build/interfaces",
-    "@models": "build/models",
-    "@schemas": "build/schemas"
+    "@models": "build/models"
   }
 }

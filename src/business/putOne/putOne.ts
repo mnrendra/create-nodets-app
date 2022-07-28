@@ -1,8 +1,8 @@
 import { Request } from 'express'
 import { Example } from '@models'
-import { validateExample } from '@schemas'
-import { isString, isJSON } from '@lib/validator'
-import { iExample } from '@commons/interfaces'
+import { validateExample } from '@commons/joi'
+import { isString, isJSON } from '@commons/lib/validator'
+import { iExample } from '@commons/ts/interfaces'
 
 interface iPutOneRes {
   status: number

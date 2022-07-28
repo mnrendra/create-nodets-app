@@ -1,7 +1,7 @@
 import { Request } from 'express'
 import { Example } from '@models'
-import { isString, isJSON } from '@lib/validator'
-import { iExample } from '@commons/interfaces'
+import { isString, isJSON } from '@commons/lib/validator'
+import { iExample } from '@commons/ts/interfaces'
 
 interface iDelOneRes {
   status: number

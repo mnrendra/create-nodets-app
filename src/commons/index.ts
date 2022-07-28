@@ -1,12 +1,15 @@
-import * as responder from './responder'
-import * as isExist from './isExist'
+import * as joi from './joi'
+import * as lib from './lib'
+import * as ts from './ts'
 
 export {
-  responder,
-  isExist
+  joi,
+  lib,
+  ts
 }
 
 export default {
-  responder,
-  isExist
+  joi,
+  lib,
+  ts
 }
