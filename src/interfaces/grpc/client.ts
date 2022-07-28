@@ -15,22 +15,22 @@ const main = (port: number = 50051): void => {
     console.log('getMany', response)
   })
 
-  client.getOne({ params: { id: '62ced1a1f25c729e6e4c21d4' } }, (err: any, response: any): void => {
+  client.getOne({ params: { id: '62e2e9c9c85d720a10d6aa33' } }, (err: any, response: any): void => {
     if (err !== null && err !== undefined) throw new Error(err)
     console.log('getOne', response)
   })
 
-  client.postOne({ body: { name: 'Susi' } }, (err: any, response: any): void => {
+  client.postOne({ body: { name: 'Foxtrot' } }, (err: any, response: any): void => {
     if (err !== null && err !== undefined) throw new Error(err)
     console.log('postOne', response)
   })
 
-  client.putOne({ params: { id: '62ced1a1f25c729e6e4c21d4' }, body: { name: 'Alfa Two' } }, (err: any, response: any): void => {
+  client.putOne({ params: { id: '62e2e16d70ebc9a93593aec1' }, body: { name: 'Echo One' } }, (err: any, response: any): void => {
     if (err !== null && err !== undefined) throw new Error(err)
     console.log('putOne', response)
   })
 
-  client.delOne({ params: { id: '62ced1a1f25c729e6e4c21d4' } }, (err: any, response: any): void => {
+  client.delOne({ params: { id: '62e2e9c9c85d720a10d6aa33' } }, (err: any, response: any): void => {
     if (err !== null && err !== undefined) throw new Error(err)
     console.log('delOne', response)
   })

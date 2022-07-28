@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import fs from 'fs'
 
-import { isNumb, isString } from '@lib/validator'
+import { isNumb, isString } from '@commons/lib/validator'
 
 const errMsg = 'Please follow https://github.com/mnrendra/create-nodets-app#3-set-environment step.'
 
